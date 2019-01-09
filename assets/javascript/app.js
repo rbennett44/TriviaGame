@@ -1,9 +1,12 @@
 //This is for the Canadian Trivia game
 //Have a start button that will start the game
 
+
 var gametime = setTimeout(thirtyseconds, 1000 * 30);
 //Set countdown timer to 30 seconds
-$("#startGame").on("click", function());
+$("#startGame").on("click", function() {
+    console.log("You just started the game.")
+});
 //10 questions and their answers
 var question1 = $("#question1")[
     "Pierre Trudeau": false,
