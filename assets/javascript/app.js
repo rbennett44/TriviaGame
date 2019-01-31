@@ -5,18 +5,18 @@
 //Link with index
 $("#startGame").on("click", function() {
     // console.log("You just started the game.");
-    $("#startGame").remove();
-    for(var i = 0; i < questions.length; i++) {
-        $("#subwrapper").append("<h2>"+ questions[i].question + "</h2>");
-        for(var j = 0; j < questions[i].answers.length; j++) {
-            $("#subwrapper").append("<input type='radio' name='question-" +i+"' value='" +questions[i].answers[j]+ " '>" + questions[i].answers[j])
-        };
-    };
+    // $("#startGame").remove();
+    // for(var i = 0; i < questions.length; i++) {
+    //     $("#subwrapper").append("<h2>"+ questions[i].question + "</h2>");
+    //     for(var j = 0; j < questions[i].answers.length; j++) {
+    //         $("#subwrapper").append("<input type='radio' name='question-" +i+"' value='" +questions[i].answers[j]+ "'>" + questions[i].answers[j])
+    //     };
+    // };
     game.start();
 });
 
 var questions = [{
-    question: "Who is the current Prime Minister?",
+    question: "Who is the current Prime Minister of Canada?",
     answers: ["Pierre Trudeau", "Kim Cambell", "Justin Trudeau", "Brian Mulroney"],
     correctAnswer: "Justin Trudeau"
 },
@@ -71,18 +71,17 @@ var game = {
     },
     start: function() {
         timer = setInterval(game.countdown,1000);
-        $("#subwrapper").prepend('<h2>Time Remaining: <span id="counter">120</span> Seconds</h2>');
-        $("#startGame").on("click", function() {
-            console.log("You just started the game.");
+        $("#subwrapper").prepend('<h2>Time Remaining: <span id="counter">30</span> Seconds</h2>');
+        
             $("#startGame").remove();
-            for(var i = 0; i < questions.length; i++) {
+            for (var i = 0; i < questions.length; i++) {
                 $("#subwrapper").append("<h2>"+ questions[i].question + "</h2>");
-                for(var j = 0; j < questions[i].answers.length; j++) {
+                for (var j = 0; j < questions[i].answers.length; j++) {
                     $("#subwrapper").append("<input type='radio' name='question-" +i+"' value='" +questions[i].answers[j]+ " '>" + questions[i].answers[j])
                 };
             };
         
-        });
+        
     },
     done: function() {
         $.each($('input[name="question-0]":checked'),function() {
