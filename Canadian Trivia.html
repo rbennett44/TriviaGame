@@ -13,9 +13,9 @@
     <div class="container">
         <div class="jumbotron">
             <h1 class="text-center">All Things Canadian</h1>
-            <h2 class="text-center">Answer the following questions correctly in 30 seconds and let's see just how crazy a Cunuck you are!</h2>
+            <h2 class="text-center">Answer the following questions correctly in 30 seconds then press "End Game" and let's see just how crazy a Cunuck you are!</h2>
             <h2 class="text-center" id="show-number"><strong>30</strong></h2>
-            <a class="btn btn-primary btn-lg" id="start" href="#" role="button">Start the Game</a>
+            <a class="btn btn-primary btn-lg" id="start" href="#" role="button" onclick="clock()">Start the Game</a>
         </div>
 
         <div class="card">
@@ -23,6 +23,7 @@
 
                 <h2 id="test_status"></h2>
                 <div id="test"></div>
+                <a class="btn btn-primary btn-lg" id="finish" href="#" role="button" onclick="clearInterval(myTimer)">End the Game</a>
             </div>
         </div>
     </div>    

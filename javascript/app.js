@@ -15,8 +15,8 @@ chD,
 correct = 0;
 
 //the counter for the count-down
-var counter = 30;
-var intervalid; 
+
+var myTimer; 
 
    var questions = [
        ["Who is the current Prime Minister?", "Pierre Trudeau", "Kim Cambell", "Justin Trudeau", "Brian Mulroney", "C"],
@@ -32,17 +32,7 @@ var intervalid;
 
    ];
 
-$(document).ready(function() {
-    $("#start").click(function() {
-        counter--;
-        var sTime = setInterval(function() {
-            if(counter === 0) {
-                $("#show-number").html(counter);
 
-            } 
-        }, 1000 * 30);
-    });
-});
    function status(x) {
        return document.getElementById(x);
    }
@@ -88,24 +78,17 @@ $(document).ready(function() {
     
 
    //Setting the timer
-    $('#start').on("click", run);
+   function clock() {
+    myTimer = setInterval(myClock, 1000);
+    var counter = 30;
 
-    function run() {
-        clearInterval(intervalid);
-        intervalid = setInterval(decrement, 1000);
-    };
-
-   function decrement() {
-    number--;
-    $('#show-number').html("<h2>" + number + "</h2>");
-    if (number === 0) {
-        stop();
+    function myClock() {
+        document.getElementById("show-number").innerHTML = --counter;
+        if (counter == 0) {
+            clearInterval(myTimer);
+            alert("Times Up!  Game Over.")
+        }
     }
-   };
-
-   function stop() {
-    clearInterval(intervalid);
-   };
-
+}
 
    window.addEventListener("load", renderQuestion, false);
